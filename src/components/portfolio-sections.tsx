@@ -1,4 +1,4 @@
-import { ArrowUpRight, ArrowRight, Check, Globe2, LayoutTemplate, BookOpen, Code2, RefreshCw, UserRound, ShieldCheck, Clock3, Search, Users, MapPin, MessageCircle, SlidersHorizontal, Instagram, Minus, Camera, Sparkles } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, Check, Globe2, LayoutTemplate, BookOpen, Code2, RefreshCw, UserRound, ShieldCheck, Clock3, Search, Users, MapPin, MessageCircle, SlidersHorizontal, Instagram, Minus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { faqs, whatsapp, instagram } from '@/lib/portfolio';

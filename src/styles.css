@@ -353,4 +353,6 @@ body { font-size: 15px; }
 @media (prefers-reduced-motion: reduce) {
   .project-image-link img, .service-item, .social-card, .contact-button, .floating-whatsapp { transition: none; }
 }
+.portrait-placeholder { background: linear-gradient(180deg,transparent 58%,oklch(0.12 0.03 266 / .28)),url('/felipe-cal.jpg') center 36% / cover no-repeat; }
+.portrait-placeholder > * { display: none; }
 
