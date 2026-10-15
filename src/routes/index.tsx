@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ContactButton, PortfolioSections, SectionLabel } from '@/components/portfolio-sections';
 import { projects, whatsapp, instagram } from '@/lib/portfolio';
 import mascot from '@/assets/mascote-removebg-preview.png';
+import headerMascot from '@/assets/mascote-header.jpg';
 
 const title = 'Felipe Cal | Web Designer — Criação de Sites Profissionais';
 const description = 'Conheça os projetos de Felipe Cal, web designer há 5 anos. Sites profissionais, landing pages, catálogos digitais e soluções web personalizadas.';

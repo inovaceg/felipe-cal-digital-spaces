@@ -164,7 +164,8 @@ a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 5px; }
 .page-container { width: min(1240px, calc(100% - 100px)); margin-inline: auto; }
 .site-header { height: 88px; position: sticky; top: 0; z-index: 40; background: color-mix(in oklab, var(--background) 86%, transparent); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
-.wordmark { font-size: 28px; font-weight: 700; white-space: nowrap; }
+.wordmark { font-size: 28px; font-weight: 700; white-space: nowrap; display: inline-flex; align-items: center; gap: 9px; }
+.wordmark::before { content: ''; display: inline-block; width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%; background: url('./assets/mascote-header.jpg') center 39% / cover no-repeat; }
 .wordmark span { color: var(--primary); }
 .desktop-nav { display: flex; gap: 25px; align-items: center; }
 .desktop-nav a { font-size: 12px; color: var(--muted-foreground); position: relative; transition: color .2s; }
