@@ -13,3 +13,4 @@
 - Store portfolio records and commercial links in a shared browser-safe data module so cards and detail dialogs use one source of truth.
 - Use CDN asset pointers for original uploaded media so the repository stays lightweight.
 - Keep this portfolio frontend-only; contact actions link directly to the supplied external channels.
+- Render project case studies through a validated dynamic project route; describe only evidenced design approach and delivered features, never undocumented historical steps or performance claims.
