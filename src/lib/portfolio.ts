@@ -1,7 +1,7 @@
 import docesMockup from '@/assets/doces-mockup.png';
 import guaruMockup from '@/assets/guaru-mockup.png';
 import frederickMockup from '@/assets/frederick-mockup.png';
-import village from '@/assets/village.png.asset.json';
+import villageMockup from '@/assets/village-mockup.png';
 import crismarMockup from '@/assets/crismar-mockup.png';
 
 export const whatsapp = 'https://wa.me/5532984022567?text=Ol%C3%A1%2C%20Felipe%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20a%20cria%C3%A7%C3%A3o%20de%20um%20site.';
@@ -11,7 +11,7 @@ export const projects = [
   { id: 'doces', name: 'Doces São Fidélis', category: 'Site Institucional / Catálogo Digital', image: docesMockup, description: 'Site institucional que valoriza a tradição e a identidade da Doces São Fidélis, apresentando sua história e seu catálogo de produtos.', features: ['Apresentação institucional', 'História da marca', 'Catálogo de produtos', 'Navegação responsiva'], url: 'https://docessaofidelis.com.br/' },
   { id: 'guaru', name: 'Guaru Burguer', category: 'Site para Delivery / Gastronomia', image: guaruMockup, description: 'Experiência digital criada para apresentar a hamburgueria, valorizar seu cardápio e facilitar o contato e os pedidos dos clientes.', features: ['Identidade visual personalizada', 'Cardápio digital', 'Interface adaptada ao celular', 'Jornada de pedidos'], url: 'https://guaru-burguer-delivery-jf.lovable.app/' },
   { id: 'frederick', name: 'Dr. Frederick Parreira', category: 'Site Profissional / Saúde', image: frederickMockup, description: 'Site profissional com identidade elegante e comunicação clara, desenvolvido para apresentar os serviços e facilitar o contato com pacientes.', features: ['Apresentação dos serviços', 'Design profissional', 'Navegação responsiva', 'Integração de contato e agendamento'], url: undefined },
-  { id: 'village', name: 'Espaço Village', category: 'Site Institucional / Saúde', image: village.url, description: 'Site institucional com visual acolhedor e sofisticado, criado para apresentar a estrutura, os serviços e as informações do Espaço Village.', features: ['Apresentação do espaço', 'Galeria de imagens', 'Informações sobre serviços', 'Unidades e canais de contato'], url: 'https://espacovillage.verdent.app/' },
+  { id: 'village', name: 'Espaço Village', category: 'Site Institucional / Saúde', image: villageMockup, description: 'Site institucional com visual acolhedor e sofisticado, criado para apresentar a estrutura, os serviços e as informações do Espaço Village.', features: ['Apresentação do espaço', 'Galeria de imagens', 'Informações sobre serviços', 'Unidades e canais de contato'], url: 'https://espacovillage.verdent.app/' },
 ];
 export type Project = (typeof projects)[number];
 export const faqs = [
