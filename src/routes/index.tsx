@@ -13,7 +13,7 @@ export const Route = createFileRoute('/')({
   head: () => ({ meta: [{ title }, { name: 'description', content: description }, { property: 'og:title', content: title }, { property: 'og:description', content: description }, { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' }] }),
   component: Index,
 });
-const navigation = [['inicio', 'Início'], ['projetos', 'Projetos'], ['servicos', 'Serviços'], ['por-que', 'Por que ter um site?'], ['sobre', 'Sobre mim'], ['contato', 'Contato']] as const;
+const navigation = [['inicio', 'Início'], ['projetos', 'Projetos'], ['servicos', 'Serviços'], ['por-que', 'Por que ter um site?'], ['sobre', 'Sobre mim'], ['orcamento', 'Orçamento'], ['contato', 'Contato']] as const;
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
