@@ -1,24 +1,39 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { useEffect, useState } from 'react';
+import { ArrowDown, ArrowDownRight, ArrowUpRight, Check, Code2, Menu, X, Mouse, Sparkles, MonitorSmartphone, Crosshair, MessageCircle, Instagram } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ContactButton, PortfolioSections, SectionLabel } from '@/components/portfolio-sections';
+import { projects, whatsapp, instagram } from '@/lib/portfolio';
+import mascot from '@/assets/mascote.jpg.asset.json';
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
+const title = 'Felipe Cal | Web Designer — Criação de Sites Profissionais';
+const description = 'Conheça os projetos de Felipe Cal, web designer há 5 anos. Sites profissionais, landing pages, catálogos digitais e soluções web personalizadas.';
+export const Route = createFileRoute('/')({
+  head: () => ({ meta: [{ title }, { name: 'description', content: description }, { property: 'og:title', content: title }, { property: 'og:description', content: description }, { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' }] }),
   component: Index,
 });
+const navigation = [['inicio', 'Início'], ['projetos', 'Projetos'], ['servicos', 'Serviços'], ['por-que', 'Por que ter um site?'], ['sobre', 'Sobre mim'], ['contato', 'Contato']] as const;
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState('inicio');
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) setActive(entry.target.id); }); }, { rootMargin: '-20% 0px -55% 0px' });
+    navigation.forEach(([id]) => { const element = document.getElementById(id); if (element) observer.observe(element); });
+    const reveals = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); reveals.unobserve(entry.target); } }), { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(element => reveals.observe(element));
+    return () => { observer.disconnect(); reveals.disconnect(); };
+  }, []);
+  return <>
+    <a className="skip-link" href="#main">Pular para o conteúdo</a>
+    <header className="site-header"><div className="page-container header-inner"><a href="#inicio" className="wordmark" aria-label="Felipe Cal, início">Felipe Cal<span>.</span></a><nav className="desktop-nav" aria-label="Menu principal">{navigation.map(([id, label]) => <a key={id} href={`#${id}`} className={active === id ? 'active' : ''}>{label}</a>)}</nav><Button asChild className="header-cta"><a href={whatsapp} target="_blank" rel="noopener noreferrer">Solicitar orçamento<ArrowUpRight /></a></Button><Button variant="ghost" size="icon" className="mobile-menu-button" aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menuOpen} aria-controls="mobile-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</Button></div>{menuOpen && <nav id="mobile-nav" className="mobile-nav" aria-label="Menu de navegação">{navigation.map(([id, label]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}<ArrowUpRight /></a>)}<ContactButton>Solicitar orçamento</ContactButton></nav>}</header>
+    <main id="main">
+      <section id="inicio" className="hero-section"><div className="hero-grid" aria-hidden="true" /><div className="page-container hero-content"><div className="hero-copy"><p className="hero-badge"><span />WEB DESIGNER <span className="badge-divider">/</span> 5 ANOS DE EXPERIÊNCIA</p><h1>Seu negócio<br />merece <span className="hero-highlight">mais<svg viewBox="0 0 240 18" aria-hidden="true"><path d="M3 13 Q112 -1 236 7" /></svg></span><br />do que apenas estar<br />na internet<span className="text-primary">.</span></h1><p className="hero-description">Eu sou <strong>Felipe Cal</strong>, web designer há 5 anos. Crio sites modernos, estratégicos e personalizados para transformar ideias em presença digital e aproximar marcas de novos clientes.</p><div className="hero-actions"><ContactButton>Quero criar meu site</ContactButton><Button asChild variant="ghost" className="explore-button"><a href="#projetos">Explorar meus projetos<ArrowDownRight /></a></Button></div><div className="hero-features">{['Design personalizado', 'Experiência responsiva', 'Foco em resultados'].map(x => <span key={x}><Check />{x}</span>)}</div></div><div className="mascot-scene"><div className="mascot-caption"><span className="status-dot" />DESIGN + TECNOLOGIA</div><div className="mascot-image-wrap"><img src={mascot.url} alt="Mascote original de Felipe Cal: robô branco e azul, com olhos digitais e moletom escuro" className="mascot-image" width="460" height="460" fetchPriority="high" /></div><div className="floating-code"><Code2 /><div><strong>Ideias ganham vida.</strong><span>Um pixel de cada vez.</span></div><span className="code-dot" /></div><span className="scene-coordinate">CRIATIVIDADE ENCONTRA ESTRATÉGIA ↗</span><span className="scene-cross cross-one">+</span><span className="scene-cross cross-two">+</span></div></div><div className="page-container hero-bottom"><a href="#projetos"><Mouse />Role para descobrir<ArrowDown /></a><span>DESIGN QUE CONECTA. EXPERIÊNCIAS QUE MARCAM.</span></div></section>
+      <div className="expertise-strip"><div className="page-container"><span><Sparkles />Design com propósito</span><span className="strip-star">✳</span><span><MonitorSmartphone />Experiências em qualquer tela</span><span className="strip-star">✳</span><span><Crosshair />Estratégia em cada detalhe</span><span className="strip-star">✳</span><span>Seu próximo passo é digital<ArrowUpRight /></span></div></div>
+      <section id="projetos" className="section-band projects-section"><div className="page-container"><SectionLabel number="01">PROJETOS SELECIONADOS</SectionLabel><div className="section-heading"><h2>Ideias reais.<br /><span className="text-muted-foreground">Experiências extraordinárias.</span></h2><p>Cada projeto é uma oportunidade de criar algo único,<br className="desktop-break" /> funcional e alinhado à identidade de quem<br className="desktop-break" /> confia no meu trabalho.</p></div><div className="projects-grid">{projects.map((project, index) => <article className={`project-card reveal project-${project.id}`} key={project.id}><Link to="/projetos/$slug" params={{ slug: project.id }} className="project-image-link" aria-label={`Ver projeto ${project.name}`}><img src={project.image} alt={`Mockup original do projeto ${project.name}`} loading="lazy" decoding="async" /><span className="project-open"><ArrowUpRight /></span>{index === 0 && <span className="project-featured">PROJETO EM DESTAQUE</span>}</Link><div className="project-info"><div><p className="project-category">{project.category}</p><h3><Link to="/projetos/$slug" params={{ slug: project.id }}>{project.name}</Link></h3></div><Button asChild variant="ghost" className="project-link"><Link to="/projetos/$slug" params={{ slug: project.id }}>Ver projeto<ArrowUpRight /></Link></Button></div><p className="project-description">{project.description}</p></article>)}</div><div className="projects-end"><span>Seu projeto pode ser o próximo.</span><a href={whatsapp} target="_blank" rel="noopener noreferrer">Vamos tirar sua ideia do papel<ArrowUpRight /></a></div></div></section>
+      <PortfolioSections />
+    </main>
+    <footer className="site-footer"><div className="page-container"><div className="footer-top"><div><a href="#inicio" className="wordmark">Felipe Cal<span>.</span></a><p>Web Designer<br />Transformando ideias em experiências digitais.</p></div><nav aria-label="Navegação do rodapé">{navigation.slice(1).map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav><div className="footer-social"><a href={whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle /> (32) 98402-2567<ArrowUpRight /></a><a href={instagram} target="_blank" rel="noopener noreferrer"><Instagram /> @felipecal<ArrowUpRight /></a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Felipe Cal. Todos os direitos reservados.</span><span>Feito com intenção. Em cada detalhe.<span className="text-primary"> ↗</span></span></div></div></footer>
+    <Button asChild size="icon" className="floating-whatsapp" aria-label="Conversar com Felipe no WhatsApp"><a href={whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle /></a></Button>
+  </>;
 }
