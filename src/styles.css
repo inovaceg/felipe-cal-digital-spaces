@@ -214,10 +214,10 @@ a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 5px; }
 h2 { font-size: 42px; line-height: 1.2; font-weight: 500; }
 .section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 40px; }.section-heading>p { color: var(--muted-foreground); font-size: 12px; line-height: 1.9; padding-bottom: 4px; max-width: 370px; }
 .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px 28px; }
-.project-crismar { grid-column: 1/-1; }
+.project-frederick { grid-column: 1/-1; }
 .project-image-link { display: block; position: relative; overflow: hidden; border: 1px solid var(--border); border-radius: 6px; background: var(--card); }
 .project-image-link img { width: 100%; height: auto; display: block; transition: transform .5s; }.project-image-link:hover img { transform: scale(1.015); }
-.project-crismar .project-image-link { max-height: none; }
+.project-frederick .project-image-link { max-height: none; }
 .project-open { position: absolute; bottom: 15px; right: 15px; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--border); background: var(--background); transition: background .2s; }.project-open svg { width: 17px; }.project-image-link:hover .project-open { background: var(--primary); }
 .project-featured { position: absolute; top: 16px; right: 16px; padding: 7px 11px; border-radius: 4px; color: var(--foreground); background: var(--background); font-size: 8px; border: 1px solid var(--border); }
 .project-info { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 20px; }.project-category { font-size: 9px; color: var(--muted-foreground); margin-bottom: 7px; }.project-info h3 { font-size: 23px; font-weight: 500; }.project-link { font-size: 10px; padding-inline: 0; }.project-description { color: var(--muted-foreground); line-height: 1.8; font-size: 11px; max-width: 660px; margin-top: 10px; }.projects-end { border-top: 1px solid var(--border); margin-top: 45px; padding-top: 24px; display: flex; align-items: center; justify-content: space-between; font-size: 12px; }.projects-end>span { color: var(--muted-foreground); }.projects-end>a { display: flex; gap: 15px; align-items: center; }.projects-end svg { width: 16px; color: var(--cyan); }
